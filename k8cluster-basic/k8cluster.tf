@@ -106,7 +106,7 @@ resource "null_resource" "addtoconfig" {
   provisioner "local-exec" {
     command = "sudo chmod +x ${path.module}/scripts/add-cluster-to-local-config.sh"
   }
-   triggers = {
+  triggers = {
     "after" = null_resource.create_cluster.id
   }
 }
