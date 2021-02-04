@@ -56,6 +56,11 @@ bookinfo
 https://istio.io/latest/docs/examples/bookinfo/
 ```
 
+fortio load generator
+```
+https://github.com/fortio/fortio
+```
+
 ## Refs ##
 ```
 https://github.com/jetstack/cert-manager
