@@ -1,1 +1,9 @@
 k8cluster-basic/terraform.tfvars
+k8cluster-basic/.terraform.lock.hcl
+k8cluster-basic/.terraform.tfstate.lock.info
+k8cluster-basic/terraform.tfstate
+k8cluster-basic/.terraform/providers/registry.terraform.io/hashicorp/local/2.0.0/linux_amd64/terraform-provider-local_v2.0.0_x5
+k8cluster-basic/.terraform/providers/registry.terraform.io/hashicorp/null/3.0.0/linux_amd64/terraform-provider-null_v3.0.0_x5
+k8cluster-basic/.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4
+k8cluster-basic/.terraform/providers/registry.terraform.io/hashicorp/vsphere/1.24.3/linux_amd64/terraform-provider-vsphere_v1.24.3_x4
+k8cluster-basic/scripts/deploy-cluster-node.sh
