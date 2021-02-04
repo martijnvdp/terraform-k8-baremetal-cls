@@ -1,9 +1,12 @@
 # terraform
 
-## k8cluster-ubuntu ##
-Working auto deployment kubernetes cluster on vmware with ubuntu vms \
+## k8cluster ##
+
+Working bare metal autodeployment of a kubernetes cluster on vmware with ubuntu vms \
 using terraform and shell scripts 
+
 - metallb loadbalancer
+
 
 ## k8cluster-kubespray ##
 Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform
