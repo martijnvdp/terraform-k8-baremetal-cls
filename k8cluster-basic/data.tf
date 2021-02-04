@@ -30,25 +30,26 @@ data "vsphere_resource_pool" "pool" {
 data "template_file" "deploy-cluster-template" {
   template = file("${path.module}/scripts/deploy-cluster-template")
   vars = {
-     ip1 = vsphere_virtual_machine.vm[0].default_ip_address
-     ip2 = vsphere_virtual_machine.vm[1].default_ip_address
-     ip3 = vsphere_virtual_machine.vm[2].default_ip_address
-     admin_user = var.local_admin_user
-     admin_pass = var.local_admin_pass
+    ip1                  = vsphere_virtual_machine.vm[0].default_ip_address
+    ip2                  = vsphere_virtual_machine.vm[1].default_ip_address
+    ip3                  = vsphere_virtual_machine.vm[2].default_ip_address
+    loadbalancer_iprange = var.loadbalancer_iprange
+    admin_user           = var.local_admin_user
+    admin_pass           = var.local_admin_pass
   }
 }
 
 data "template_file" "deploy-cluster-node-template" {
   template = file("${path.module}/scripts/deploy-cluster-node-template")
   vars = {
-     admin_user = var.local_admin_user
-     admin_pass = var.local_admin_pass
+    admin_user = var.local_admin_user
+    admin_pass = var.local_admin_pass
   }
 }
 data "template_file" "add-cluster-to-local-config-template" {
   template = file("${path.module}/scripts/add-cluster-to-local-config-template")
   vars = {
-     clustername = "k8cluster"
-     api-endpoint = vsphere_virtual_machine.vm[0].default_ip_address
+    clustername  = "k8cluster"
+    api-endpoint = vsphere_virtual_machine.vm[0].default_ip_address
   }
 }
