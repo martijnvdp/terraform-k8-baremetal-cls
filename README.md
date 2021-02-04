@@ -3,7 +3,6 @@
 ## k8cluster-basic ##
 working auto deployment kubernetes cluster on vmware with ubuntu vms \
 using terraform and shell scripts \
-\
 
 ## k8cluster ##
 Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform
