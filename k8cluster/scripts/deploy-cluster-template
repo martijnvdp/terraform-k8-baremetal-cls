@@ -1,0 +1,29 @@
+#!/bin/sh
+sudo swapoff -a
+sudo sed -i '/swap/d' /etc/fstab
+pip3 uninstall ansible -y
+pip3 uninstall ansible-base -y
+sudo firewall-cmd --permanent --add-port=6443/tcp
+sudo firewall-cmd --permanent --add-port=2379-2380/tcp
+sudo firewall-cmd --permanent --add-port=10250/tcp
+sudo firewall-cmd --permanent --add-port=10251/tcp
+sudo firewall-cmd --permanent --add-port=10252/tcp
+sudo firewall-cmd --permanent --add-port=10255/tcp
+sudo firewall-cmd --reload
+pip3 install ansible==2.9.14
+yum install sshpass -y
+# version ansible 2.9.14 https://github.com/kubernetes-sigs/kubespray/issues/6762
+pip3 install jinja2==2.11.1
+pip3 install netaddr==0.7.19
+pip3 install pbr==5.4.4
+pip3 install jmespath==0.9.5
+pip3 install ruamel.yaml==0.16.10
+cd /tmp
+sudo git clone https://github.com/kubernetes-sigs/kubespray.git
+cd /tmp/kubespray
+cp -rfp inventory/sample inventory/mycluster
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${ip1} ${ip2} ${ip3}
+echo -e "  vars:\n    ansible_connection: ssh\n    ansible_user: ${admin_user}\n    ansible_ssh_pass: ${admin_pass}">> /tmp/kubespray/inventory/mycluster/hosts.yaml
+echo -e "  localhost:\n   vars:\n    ansible_connection: local">> /tmp/kubespray/inventory/mycluster/hosts.yaml
+sed -i 's/UserKnownHostsFile\=\/dev\/null/UserKnownHostsFile\=\/dev\/null -o IdentitiesOnly=yes/g' /tmp/kubespray/ansible.cfg
+/usr/local/bin/ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
