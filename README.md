@@ -49,6 +49,8 @@ https://github.com/jetstack/cert-manager
 
 Socks microservices
 ```
+https://github.com/martijnxd/terraform-k8-baremetal-cls/tree/main/demo-loads/sock-shop
+source:
 https://github.com/microservices-demo/microservices-demo
 ```
 bookinfo
