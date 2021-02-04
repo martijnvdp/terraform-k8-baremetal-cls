@@ -1,4 +1,4 @@
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: carts
@@ -11,7 +11,7 @@ spec:
         host: carts
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: carts
@@ -23,7 +23,7 @@ spec:
       version: v1
       name: carts
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: carts-db
@@ -36,7 +36,7 @@ spec:
         host: carts-db
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: carts-db
@@ -48,7 +48,7 @@ spec:
       version: v1
       name: carts-db
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: catalogue
@@ -61,7 +61,7 @@ spec:
         host: catalogue
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: catalogue
@@ -73,7 +73,7 @@ spec:
       version: v1
       name: catalogue
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: catalogue-db
@@ -86,7 +86,7 @@ spec:
         host: catalogue-db
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: catalogue-db
@@ -98,7 +98,7 @@ spec:
       version: v1
       name: catalogue-db
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: front-end
@@ -115,7 +115,7 @@ spec:
         subset: v1
 
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: front-end
@@ -127,7 +127,7 @@ spec:
       version: v1
       name: front-end
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: orders
@@ -140,7 +140,7 @@ spec:
         host: catalogue-db
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: orders
@@ -152,7 +152,7 @@ spec:
       version: v1
       name: orders
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: orders-db
@@ -165,7 +165,7 @@ spec:
         host: orders-db
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: orders-db
@@ -177,7 +177,7 @@ spec:
       version: v1
       name: orders-db
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: payment
@@ -190,7 +190,7 @@ spec:
         host: payment
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: payment
@@ -202,7 +202,7 @@ spec:
       version: v1
       name: payment
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: queue-master
@@ -215,7 +215,7 @@ spec:
         host: queue-master
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: queue-master
@@ -227,7 +227,7 @@ spec:
       version: v1
       name: queue-master
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: rabbitmq
@@ -240,7 +240,7 @@ spec:
         host: rabbitmq
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: rabbitmq
@@ -252,7 +252,7 @@ spec:
       version: v1
       name: rabbitmq
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: shipping
@@ -265,7 +265,7 @@ spec:
         host: shipping
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: shipping
@@ -277,7 +277,7 @@ spec:
       version: v1
       name: shipping
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: user
@@ -290,7 +290,7 @@ spec:
         host: user
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: user
@@ -302,7 +302,7 @@ spec:
       version: v1
       name: user
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: user-db
@@ -315,7 +315,7 @@ spec:
         host: user-db
         subset: v1
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: user-db
