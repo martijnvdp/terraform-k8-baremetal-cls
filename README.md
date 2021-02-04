@@ -56,8 +56,9 @@ https://istio.io/latest/docs/examples/bookinfo/
 ```
 
 ## Refs ##
-
+```
 https://github.com/jetstack/cert-manager
 https://metallb.universe.tf/
 https://istio.io/
 https://github.com/kubernetes-sigs/kubespray
+```
