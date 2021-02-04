@@ -9,6 +9,7 @@ using terraform and shell scripts
 
 
 ## k8cluster-kubespray ##
+testing
 Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform
 
 playbook from https://github.com/kubernetes-sigs/kubespray
@@ -53,4 +54,12 @@ https://github.com/microservices-demo/microservices-demo
 bookinfo
 ```
 https://istio.io/latest/docs/examples/bookinfo/
+```
+
+## Refs ##
+```
+https://github.com/jetstack/cert-manager
+https://metallb.universe.tf/
+https://istio.io/
+https://github.com/kubernetes-sigs/kubespray
 ```
