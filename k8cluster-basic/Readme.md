@@ -19,3 +19,11 @@ local_admin_user     = "ubuntu"
 local_admin_pass     = "ubuntu"
 loadbalancer_iprange = "192.168.10.235-192.168.10.245"
 ```
+
+## Usage ##
+on linux: 
+```
+terraform init
+terraform plan
+.\scripts\add-cluster-to-local-config.sh \\enter token from output
+```
