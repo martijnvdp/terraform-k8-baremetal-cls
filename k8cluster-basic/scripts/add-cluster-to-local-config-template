@@ -1,0 +1,7 @@
+echo "Enter token of admin service account:"
+read token 
+kubectl config set-cluster ${clustername} --server=https://${api-endpoint}:6443 --insecure-skip-tls-verify=true && \
+kubectl config set-context ${clustername} --cluster=${clustername} && \
+kubectl config set-credentials admin --token=$${token} && \
+kubectl config set-context ${clustername} --user=admin && \
+kubectl config use-context ${clustername}
