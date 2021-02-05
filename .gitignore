@@ -9,3 +9,6 @@ k8cluster-basic/.terraform/providers/registry.terraform.io/hashicorp/vsphere/1.2
 k8cluster-basic/scripts/deploy-cluster-node.sh
 k8cluster-basic/scripts/add-cluster-to-local-config.sh
 k8cluster-basic/scripts/deploy-cluster.sh
+k8cluster/terraform.tfvars
+k8cluster/.terraform.lock.hcl
+.vscode/settings.json

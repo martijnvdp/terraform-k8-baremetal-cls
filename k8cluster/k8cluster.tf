@@ -88,12 +88,3 @@ resource "null_resource" "create_cluster" {
     "after" = vsphere_compute_cluster_vm_anti_affinity_rule.cluster_vm_anti_affinity_rule.id
   }
 }
-
-resource "null_resource" "addtoconfig" {
-  provisioner "local-exec" {
-    command = "sudo chmod +x ${path.module}/scripts/add-cluster-to-local-config.sh"
-  }
-  triggers = {
-    "after" = null_resource.create_cluster.id
-  }
-}
