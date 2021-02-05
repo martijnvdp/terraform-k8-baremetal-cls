@@ -53,3 +53,11 @@ data "template_file" "add-cluster-to-local-config-template" {
     api-endpoint = vsphere_virtual_machine.vm[0].default_ip_address
   }
 }
+
+data "template_file" "add-cluster-to-local-config-ps-template" {
+  template = file("${path.module}/scripts/add-cluster-to-local-config-ps-template")
+  vars = {
+    clustername  = "k8cluster"
+    api-endpoint = vsphere_virtual_machine.vm[0].default_ip_address
+  }
+}
