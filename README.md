@@ -1,4 +1,4 @@
-# terraform
+# k8 cluster deployment scripts
 
 ## k8cluster ##
 
@@ -19,7 +19,7 @@ ERROR! 'dict object' has no attribute 'pkg_mgr' \
 https://github.com/kubernetes-sigs/kubespray/issues/6762
 
 
-## demo load ##
+## Demo workloads ##
 
 Install demo workload in the k8 cluster
 
@@ -36,7 +36,7 @@ https://github.com/martijnxd/terraform-k8-baremetal-cls/tree/main/demo-loads/soc
 source:
 https://github.com/microservices-demo/microservices-demo
 ```
-bookinfo
+#bookinfo#
 ```
 https://istio.io/latest/docs/examples/bookinfo/
 ```
