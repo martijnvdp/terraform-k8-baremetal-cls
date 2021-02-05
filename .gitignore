@@ -1,3 +1,4 @@
+**/.terraform/**
 k8cluster-basic/terraform.tfvars
 k8cluster-basic/.terraform.lock.hcl
 k8cluster-basic/.terraform.tfstate.lock.info
@@ -12,3 +13,10 @@ k8cluster-basic/scripts/deploy-cluster.sh
 k8cluster/terraform.tfvars
 k8cluster/.terraform.lock.hcl
 .vscode/settings.json
+k8cluster/.terraform.tfstate.lock.info
+k8cluster/terraform.tfstate
+k8cluster/scripts/add-cluster-to-local-config.sh
+k8cluster/scripts/deploy-cluster-node.sh
+k8cluster/scripts/deploy-cluster.sh
+k8cluster - kubespray/scripts/deploy-cluster-node.sh
+k8cluster/scripts/add-cluster-to-local-config.ps1
