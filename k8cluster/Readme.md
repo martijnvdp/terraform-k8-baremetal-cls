@@ -3,7 +3,8 @@
 1. create terraform.tfvars see example
 2. terraform init
 3. terraform apply
-4. user output token with the add-cluster-to-local-config script to add the cluster to kubeconfig with the admin service account
+4. use output token with the add-cluster-to-local-config script 
+   to add the cluster to kubeconfig with the admin service account
 
 powershell
 powershell -file scripts\add-cluster-to-local-config.ps1 
@@ -18,7 +19,7 @@ kubectl get svc
 ```
 
 
-example terraform.tfvars
+### example terraform.tfvars ###
 ```
 vsphere_server       = "vc.dc.local"
 vm_name              = "k8node"
