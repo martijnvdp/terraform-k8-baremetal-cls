@@ -23,7 +23,7 @@ https://github.com/kubernetes-sigs/kubespray/issues/6762
 
 Install demo workload in the k8 cluster
 
-Socks microservices
+### Socks webshop - microservices ###
 ```
 1. install istio in the k8 cluster
 istioctl install
@@ -36,7 +36,7 @@ https://github.com/martijnxd/terraform-k8-baremetal-cls/tree/main/demo-loads/soc
 source:
 https://github.com/microservices-demo/microservices-demo
 ```
-#bookinfo#
+### Bookinfo ###
 ```
 https://istio.io/latest/docs/examples/bookinfo/
 ```
