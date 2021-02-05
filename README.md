@@ -29,7 +29,7 @@ Socks microservices
 istioctl install
 2. install socks shop
 powershell -file ../demo-loads/sock-shop/deploy-socks-shop.ps1
-3. install addon like kiala console see adon section
+3. install addon like kiala console see addon section
 run it with: istioctl dashboard kiala
 
 https://github.com/martijnxd/terraform-k8-baremetal-cls/tree/main/demo-loads/sock-shop
