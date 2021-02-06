@@ -5,6 +5,7 @@ variable "ADMIN_USER" {}
 variable "vsphere_server" {
   description = "virtual center server FQDN"
 }
+
 variable "vm_dns" {
   description = "dns server ips"
 }
@@ -30,6 +31,10 @@ variable "vm_datastore" {
 }
 variable "vm_cluster" {
   description = "vm domain"
+}
+variable "vm_cluster_node_count" {
+  description = "number of esxi hosts in the cluster"
+  default     = 3
 }
 variable "vm_resource_pool" {
   description = "vm resource pool"
