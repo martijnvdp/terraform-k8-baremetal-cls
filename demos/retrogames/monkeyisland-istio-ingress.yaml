@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: monkeyisland-gateway
+  namespace: games
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 8080
+      name: port1
+      protocol: TCP
+    hosts:
+    - "*"
+  - port:
+      number: 8081
+      name: port2
+      protocol: TCP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: monkeyisland-virtual-service
+  namespace: games
+spec:
+  hosts:
+  - "*" 
+  gateways:
+  - monkeyisland-gateway
+  tcp:
+  - match:
+    - port: 80
+    route:
+    - destination:
+        host: monkeyisland
+        port:
+          number: 8080
+  - match:
+    - port: 8081
+    route:
+    - destination:
+        host: monkeyisland
+        port:
+          number: 8081
