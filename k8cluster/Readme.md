@@ -16,21 +16,21 @@ vm_folder            = "folder"
 vm_count             = 3
 local_admin_user     = "ubuntu"
 local_admin_pass     = "ubuntu"
-loadbalancer_iprange = "192.168.10.235-192.168.10.245"
+loadbalancer_iprange = "192.168.1.235-192.168.1.245"
 
 workers_prefix  = "k8node"
 workers_count   = 3
 workers_cpu     = 2
 workers_memory  = 4096
 workers_disk    = 100
-workers_startip = 192.168.10.211
+workers_startip = 192.168.1.211
 
 masters_prefix  = "k8master"
 masters_count   = 1
 masters_cpu     = 2
 masters_memory  = 4096
 masters_disk    = 100
-masters_startip = 192.168.10.210
+masters_startip = 192.168.1.210
 
 ```
 
