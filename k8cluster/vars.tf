@@ -1,10 +1,10 @@
 #export $env:TF_VAR_ADMIN_USER= user
 #export $env:TF_VAR_ADMIN_Pass=pass
 variable "ADMIN_PASS" {
-  description ="vmware admin password"
+  description = "vmware admin password"
 }
 variable "ADMIN_USER" {
-  description="vmware admin user account"
+  description = "vmware admin user account"
 }
 variable "vsphere_server" {
   description = "Virtualcenter server fqdn"
@@ -94,22 +94,22 @@ variable "workers_startip" {
 
 variable "masters_prefix" {
   description = "master nodes prefix name"
-  default = "k8master"
+  default     = "k8master"
 }
 
 variable "masters_count" {
   description = "master node count currently max 1 works"
-  default = 1
+  default     = 1
 }
 
 variable "masters_cpu" {
   description = "cpu count master nodes"
-  default = 2
+  default     = 2
 }
 
 variable "masters_memory" {
   description = "Memory master nodes"
-  default = 4096
+  default     = 4096
 }
 
 variable "masters_disk" {

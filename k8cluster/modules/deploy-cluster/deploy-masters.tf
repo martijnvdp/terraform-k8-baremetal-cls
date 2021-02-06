@@ -1,4 +1,3 @@
-#Virtual Machine Resource
 resource "vsphere_virtual_machine" "master_nodes" {
   count            = var.nodeconfig.master_nodes.count
   name             = "${var.nodeconfig.master_nodes.prefix}-${count.index + 1}"
