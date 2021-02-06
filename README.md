@@ -2,16 +2,17 @@
 
 ## k8cluster ##
 
-Working bare metal autodeployment of a kubernetes cluster on vmware with ubuntu vms \
+Working basic bare metal autodeployment of a kubernetes cluster on vmware with ubuntu vms \
 using terraform and shell scripts 
 
 - metallb loadbalancer
 
 
 ## k8cluster-kubespray ##
-testing
 Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform
+HA cluster multiple master nodes with etcd
 
+more info:
 playbook from https://github.com/kubernetes-sigs/kubespray
 
 ansible fixed at 2.9.14 to fix \
