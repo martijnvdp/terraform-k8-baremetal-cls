@@ -83,4 +83,6 @@ https://github.com/jetstack/cert-manager
 https://metallb.universe.tf/
 https://istio.io/
 https://github.com/kubernetes-sigs/kubespray
+https://github.com/projectcalico/calico
+https://github.com/rancher
 ```
