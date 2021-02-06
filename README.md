@@ -9,7 +9,7 @@ using terraform and shell scripts
 
 
 ## k8cluster-kubespray ##
-Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform
+Terraform code to deploy a centos8 kubernetes cluster on vmware using ansible and terraform \
 HA cluster multiple master nodes with etcd
 
 more info:
