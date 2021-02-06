@@ -65,7 +65,7 @@ example monkeyisland:
 
 ```
 ## addons ##
-
+```
 grafana: \
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/grafana.yaml
 kiali: \
