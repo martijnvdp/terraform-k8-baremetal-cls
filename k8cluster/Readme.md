@@ -33,7 +33,6 @@ vm_datastore         = "vsanDatastore"
 vm_cluster           = "CLS"
 vm_resource_pool     = "k8cluster"
 vm_folder            = "folder"
-vm_count             = 3
 local_admin_user     = "ubuntu"
 local_admin_pass     = "ubuntu"
 loadbalancer_iprange = "192.168.1.235-192.168.1.245"
