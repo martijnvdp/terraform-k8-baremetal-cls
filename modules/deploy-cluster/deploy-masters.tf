@@ -36,8 +36,8 @@ resource "vsphere_virtual_machine" "master_nodes" {
 }
 
 resource "vsphere_compute_cluster_vm_anti_affinity_rule" "cluster_master_anti_affinity_rule" {
-  count               = (length(vsphere_virtual_machine.worker_nodes) / var.cluster_node_count)
+  count               = (length(vsphere_virtual_machine.master_nodes) > 1) ? (length(vsphere_virtual_machine.master_nodes) / var.cluster_node_count) : 0
   name                = "${var.anti_affinity_rule_name_mn}-${count.index}"
   compute_cluster_id  = data.vsphere_compute_cluster.cluster.id
-  virtual_machine_ids = [for k, v in vsphere_virtual_machine.master_nodes : v.id]
+  virtual_machine_ids = [for k, v in slice(vsphere_virtual_machine.master_nodes, (count.index * var.cluster_node_count), var.cluster_node_count + (count.index * var.cluster_node_count)) : v.id]
 }
