@@ -27,7 +27,7 @@ resource "vsphere_virtual_machine" "worker_nodes" {
       }
       network_interface {
         //ipv4_address = "${var.cluster_cidr}.${(var.nodeconfig.worker_nodes.startip + count.index)}"
-        ipv4_address = "${substr(var.nodeconfig.worker_nodes.startip,0,length(var.nodeconfig.worker_nodes.startip)-length(element(split(".",var.nodeconfig.worker_nodes.startip),3)))}${(tonumber(element(split(".",var.nodeconfig.worker_nodes.startip),3)) + count.index)}"
+        ipv4_address = "${substr(var.nodeconfig.worker_nodes.startip, 0, length(var.nodeconfig.worker_nodes.startip) - length(element(split(".", var.nodeconfig.worker_nodes.startip), 3)))}${(tonumber(element(split(".", var.nodeconfig.worker_nodes.startip), 3)) + count.index)}"
         ipv4_netmask = 24
       }
       ipv4_gateway    = var.ipv4_gateway

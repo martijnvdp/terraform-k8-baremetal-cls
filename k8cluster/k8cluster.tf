@@ -17,7 +17,7 @@ module "deploy-cluster" {
     "worker_nodes" = {
       "prefix"  = var.workers_prefix,
       "count"   = var.workers_count,
-      "cpu"     = var.workers_cpu ,
+      "cpu"     = var.workers_cpu,
       "memory"  = var.workers_memory,
       "disk"    = var.workers_disk,
       "startip" = var.workers_startip,

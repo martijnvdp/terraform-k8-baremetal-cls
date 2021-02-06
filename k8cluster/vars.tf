@@ -3,11 +3,7 @@
 variable "ADMIN_PASS" {}
 variable "ADMIN_USER" {}
 variable "vsphere_server" {
-  description = "virtual center server FQDN"
-}
-
-variable "vm_name" {
-  description = "Prefix cluster nodes"
+  description = "Virtualcenter server"
 }
 
 variable "vm_dns" {
@@ -69,49 +65,51 @@ variable "loadbalancer_iprange" {
 }
 
 variable "workers_prefix" {
-  default  = "k8node"
+  default = "k8node"
 }
 
 variable "workers_count" {
-  default   = 3
+  default = 3
 }
 
 variable "workers_cpu" {
-  default     = 2
+  default = 2
 }
 
 variable "workers_memory" {
-  default  = 4096
+  default = 4096
 }
 
 variable "workers_disk" {
-  default    = 100
+  default = 100
 }
 
 variable "workers_startip" {
-  default = "192.168.10.211"
+  default = "192.168.1.211"
 }
 
 variable "masters_prefix" {
-  default  = "k8master"
+  default = "k8master"
 }
 
 variable "masters_count" {
-  default   = 1
+  default = 1
 }
 
 variable "masters_cpu" {
-  default     = 2
+  default = 2
 }
 
 variable "masters_memory" {
-  default  = 4096
+  default = 4096
 }
 
 variable "masters_disk" {
-  default    = 100
+  description = "Disk size master nodes in GB"
+  default     = 100
 }
 
 variable "masters_startip" {
-  default = "192.168.10.210"
+  description = "first ip of the master nodes"
+  default     = "192.168.1.210"
 }

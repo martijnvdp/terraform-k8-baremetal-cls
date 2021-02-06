@@ -26,7 +26,7 @@ resource "vsphere_virtual_machine" "master_nodes" {
         domain    = var.domain
       }
       network_interface {
-        ipv4_address = "${substr(var.nodeconfig.master_nodes.startip,0,length(var.nodeconfig.master_nodes.startip)-length(element(split(".",var.nodeconfig.master_nodes.startip),3)))}${(tonumber(element(split(".",var.nodeconfig.master_nodes.startip),3)) + count.index)}"
+        ipv4_address = "${substr(var.nodeconfig.master_nodes.startip, 0, length(var.nodeconfig.master_nodes.startip) - length(element(split(".", var.nodeconfig.master_nodes.startip), 3)))}${(tonumber(element(split(".", var.nodeconfig.master_nodes.startip), 3)) + count.index)}"
         ipv4_netmask = var.ipv4_netmask
       }
       ipv4_gateway    = var.ipv4_gateway
