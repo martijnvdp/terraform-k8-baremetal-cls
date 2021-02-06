@@ -7,7 +7,7 @@ module "deploy-cluster" {
   cluster       = var.vm_cluster
   template      = var.vm_template
   domain        = var.vm_domain
-  ipv4_netmask  = 24
+  ipv4_netmask  = var.vm_netmask
   ipv4_gateway  = var.vm_default_gw
   dns           = var.vm_dns
   network       = var.vm_network

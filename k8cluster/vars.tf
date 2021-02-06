@@ -18,6 +18,12 @@ variable "vm_network" {
   description = "VM Network switch"
 }
 
+variable "vm_netmask" {
+  description = "VM Network subnet"
+  default     = 24
+}
+
+
 variable "vm_default_gw" {
   description = "default gateway"
 }
