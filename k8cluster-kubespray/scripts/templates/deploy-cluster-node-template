@@ -1,8 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 sudo swapoff -a
 sudo sed -i '/swap/d' /etc/fstab
-sudo firewall-cmd --permanent --add-port=30000-32767/tcp
-sudo firewall-cmd --permanent --add-port=6783/tcp
-sudo firewall-cmd --permanent --add-port=10250/tcp
-sudo firewall-cmd --permanent --add-port=10255/tcp
-sudo firewall-cmd --reload
+IFS== command eval  'release=($(cat /etc/os-release))'
+if [[ $${release[1]} == *Ubuntu* ]];   
+    then
+        sudo ufw allow 30000-32767
+        sudo ufw allow 6783
+        sudo ufw allow 10250
+        sudo ufw allow 10255
+    else
+        sudo firewall-cmd --permanent --add-port=30000-32767/tcp
+        sudo firewall-cmd --permanent --add-port=6783/tcp
+        sudo firewall-cmd --permanent --add-port=10250/tcp
+        sudo firewall-cmd --permanent --add-port=10255/tcp
+        sudo firewall-cmd --reload
+    fi
