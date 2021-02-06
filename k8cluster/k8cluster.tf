@@ -1,5 +1,5 @@
 module "deploy-cluster" {
-  source        = "./modules/deploy-cluster"
+  source        = "${path.module}/../modules/deploy-cluster"
   folder        = var.vm_folder
   resource_pool = var.vm_resource_pool
   datastore     = var.vm_datastore
