@@ -1,4 +1,25 @@
-example terraform.tfvars
+# Deploy k8cluster with ubuntu vms #
+```
+1. create terraform.tfvars see example
+2. terraform init
+3. terraform apply
+4. use output token with the add-cluster-to-local-config script 
+   to add the cluster to kubeconfig with the admin service account
+
+powershell
+powershell -file scripts\add-cluster-to-local-config.ps1 
+enter token from the terraform output
+
+shell: 
+.\scripts\add-cluster-to-local-config.sh 
+ennter token from output
+
+5. check connection with 
+kubectl get svc
+```
+
+
+### example terraform.tfvars ###
 ```
 vsphere_server       = "vc.dc.local"
 vm_name              = "k8node"
@@ -32,10 +53,3 @@ masters_startip = 192.168.1.210
 
 ```
 
-## Usage ##
-on linux: 
-```
-terraform init
-terraform plan
-.\scripts\add-cluster-to-local-config.sh \\enter token from output
-```
