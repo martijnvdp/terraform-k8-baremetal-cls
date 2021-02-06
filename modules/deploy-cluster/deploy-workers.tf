@@ -19,7 +19,7 @@ resource "vsphere_virtual_machine" "worker_nodes" {
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
-    timeout       = "0"
+    timeout       = 120
     customize {
       linux_options {
         host_name = "${var.nodeconfig.worker_nodes.prefix}-${count.index + 1}"
