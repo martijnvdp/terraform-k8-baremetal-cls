@@ -30,10 +30,10 @@ data "vsphere_resource_pool" "pool" {
 data "template_file" "deploy-cluster-template" {
   template = file("${path.module}/scripts/deploy-cluster-template")
   vars = {
-     ip1 = "${var.vm_cidr}.${(var.vm_start_ip)}"
-     ip2 = "${var.vm_cidr}.${(var.vm_start_ip + 1)}"
-     ip3 = "${var.vm_cidr}.${(var.vm_start_ip + 2)}"
-     admin_user = var.local_admin_user
-     admin_pass = var.local_admin_pass
+    ip1        = "${var.vm_cidr}.${(var.vm_start_ip)}"
+    ip2        = "${var.vm_cidr}.${(var.vm_start_ip + 1)}"
+    ip3        = "${var.vm_cidr}.${(var.vm_start_ip + 2)}"
+    admin_user = var.local_admin_user
+    admin_pass = var.local_admin_pass
   }
 }

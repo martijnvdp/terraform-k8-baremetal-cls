@@ -1,6 +1,6 @@
 resource "local_file" "deploy-cluster-script" {
-    content     = data.template_file.deploy-cluster-template.rendered
-    filename = "${path.module}/scripts/deploy-cluster.sh"
+  content  = data.template_file.deploy-cluster-template.rendered
+  filename = "${path.module}/scripts/deploy-cluster.sh"
 }
 
 #Virtual Machine Resource
@@ -22,7 +22,7 @@ resource "vsphere_virtual_machine" "vm" {
     network_id   = data.vsphere_network.network.id
     adapter_type = "vmxnet3"
   }
-   
+
   disk {
     label = "${var.vm_name}-${count.index + 1}-disk0"
     size  = 100
@@ -37,10 +37,10 @@ resource "vsphere_virtual_machine" "vm" {
         domain    = var.vm_domain
       }
       network_interface {
-        ipv4_address    = "${var.vm_cidr}.${(var.vm_start_ip + count.index)}"
-        ipv4_netmask    = 24
+        ipv4_address = "${var.vm_cidr}.${(var.vm_start_ip + count.index)}"
+        ipv4_netmask = 24
       }
-      ipv4_gateway = var.vm_default_gw
+      ipv4_gateway    = var.vm_default_gw
       dns_server_list = var.vm_dns
     }
   }
@@ -48,7 +48,7 @@ resource "vsphere_virtual_machine" "vm" {
 resource "vsphere_compute_cluster_vm_anti_affinity_rule" "cluster_vm_anti_affinity_rule" {
   name                = var.anti_affinity_rule_name
   compute_cluster_id  = data.vsphere_compute_cluster.cluster.id
-  virtual_machine_ids = [ for k, v in vsphere_virtual_machine.vm : v.id ]
+  virtual_machine_ids = [for k, v in vsphere_virtual_machine.vm : v.id]
 }
 resource "null_resource" "prep_node2" {
   provisioner "file" {
@@ -61,17 +61,17 @@ resource "null_resource" "prep_node2" {
       "sudo /tmp/deploy-cluster-node.sh",
     ]
   }
- connection {
-    type        = "ssh"
-    user        = var.local_admin_user
-    password    = var.local_admin_pass
-    host        = tostring(vsphere_virtual_machine.vm[1].default_ip_address)
+  connection {
+    type     = "ssh"
+    user     = var.local_admin_user
+    password = var.local_admin_pass
+    host     = tostring(vsphere_virtual_machine.vm[1].default_ip_address)
   }
-      triggers = {
+  triggers = {
     "after" = vsphere_compute_cluster_vm_anti_affinity_rule.cluster_vm_anti_affinity_rule.id
- }
+  }
 }
- resource "null_resource" "prep_node3" {
+resource "null_resource" "prep_node3" {
   provisioner "file" {
     source      = local_file.deploy-cluster-script.filename
     destination = "/tmp/deploy-cluster-node.sh"
@@ -82,16 +82,16 @@ resource "null_resource" "prep_node2" {
       "sudo /tmp/deploy-cluster-node.sh",
     ]
   }
- connection {
-    type        = "ssh"
-    user        = var.local_admin_user
-    password    = var.local_admin_pass
-    host        = tostring(vsphere_virtual_machine.vm[2].default_ip_address)
+  connection {
+    type     = "ssh"
+    user     = var.local_admin_user
+    password = var.local_admin_pass
+    host     = tostring(vsphere_virtual_machine.vm[2].default_ip_address)
   }
-      triggers = {
+  triggers = {
     "after" = vsphere_compute_cluster_vm_anti_affinity_rule.cluster_vm_anti_affinity_rule.id
- }
- }
+  }
+}
 resource "null_resource" "create_cluster" {
   provisioner "file" {
     source      = local_file.deploy-cluster-script.filename
@@ -103,13 +103,13 @@ resource "null_resource" "create_cluster" {
       "sudo /tmp/deploy-cluster.sh",
     ]
   }
- connection {
-    type        = "ssh"
-    user        = var.local_admin_user
-    password    = var.local_admin_pass
-    host        = tostring(vsphere_virtual_machine.vm[0].default_ip_address)
+  connection {
+    type     = "ssh"
+    user     = var.local_admin_user
+    password = var.local_admin_pass
+    host     = tostring(vsphere_virtual_machine.vm[0].default_ip_address)
   }
-      triggers = {
+  triggers = {
     "after" = vsphere_compute_cluster_vm_anti_affinity_rule.cluster_vm_anti_affinity_rule.id
- }
+  }
 }

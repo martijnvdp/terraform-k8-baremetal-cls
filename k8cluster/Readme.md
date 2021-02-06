@@ -13,11 +13,25 @@ vm_datastore         = "vsanDatastore"
 vm_cluster           = "CLS"
 vm_resource_pool     = "k8cluster"
 vm_folder            = "folder"
-vm_cidr              = "192.168.1"
 vm_count             = 3
 local_admin_user     = "ubuntu"
 local_admin_pass     = "ubuntu"
 loadbalancer_iprange = "192.168.10.235-192.168.10.245"
+
+workers_prefix  = "k8node"
+workers_count   = 3
+workers_cpu     = 2
+workers_memory  = 4096
+workers_disk    = 100
+workers_startip = 192.168.10.211
+
+masters_prefix  = "k8master"
+masters_count   = 1
+masters_cpu     = 2
+masters_memory  = 4096
+masters_disk    = 100
+masters_startip = 192.168.10.210
+
 ```
 
 ## Usage ##
