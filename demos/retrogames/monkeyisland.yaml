@@ -1,0 +1,13 @@
+apiVersion: retro.sparkfabrik.com/v1
+kind: Game
+metadata:
+  name: monkeyisland
+  namespace: games
+spec:
+  name: "Monkey island"
+  zipUrl: "https://dosgames.com/files/monkey1.zip"
+  dir: "."
+  exe: "MIDEMO.EXE"
+  selector:
+    name: monkeyisland
+    version: v1
