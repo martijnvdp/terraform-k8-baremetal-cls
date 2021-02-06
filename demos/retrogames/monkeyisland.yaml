@@ -8,6 +8,3 @@ spec:
   zipUrl: "https://dosgames.com/files/monkey1.zip"
   dir: "."
   exe: "MIDEMO.EXE"
-  selector:
-    name: monkeyisland
-    version: v1
