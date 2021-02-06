@@ -1,4 +1,3 @@
-#Virtual Machine Resource
 resource "vsphere_virtual_machine" "worker_nodes" {
   count            = var.nodeconfig.worker_nodes.count
   name             = "${var.nodeconfig.worker_nodes.prefix}-${count.index + 1}"
@@ -26,7 +25,6 @@ resource "vsphere_virtual_machine" "worker_nodes" {
         domain    = var.domain
       }
       network_interface {
-        //ipv4_address = "${var.cluster_cidr}.${(var.nodeconfig.worker_nodes.startip + count.index)}"
         ipv4_address = "${substr(var.nodeconfig.worker_nodes.startip, 0, length(var.nodeconfig.worker_nodes.startip) - length(element(split(".", var.nodeconfig.worker_nodes.startip), 3)))}${(tonumber(element(split(".", var.nodeconfig.worker_nodes.startip), 3)) + count.index)}"
         ipv4_netmask = 24
       }

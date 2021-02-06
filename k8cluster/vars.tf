@@ -1,9 +1,13 @@
 #export $env:TF_VAR_ADMIN_USER= user
 #export $env:TF_VAR_ADMIN_Pass=pass
-variable "ADMIN_PASS" {}
-variable "ADMIN_USER" {}
+variable "ADMIN_PASS" {
+  description = "vmware admin password"
+}
+variable "ADMIN_USER" {
+  description = "vmware admin user account"
+}
 variable "vsphere_server" {
-  description = "Virtualcenter server"
+  description = "Virtualcenter server fqdn"
 }
 
 variable "vm_dns" {
@@ -19,7 +23,7 @@ variable "vm_default_gw" {
 }
 
 variable "vm_template" {
-  description = "vmware template"
+  description = "ubuntu vmware template"
 }
 
 variable "vm_domain" {
@@ -27,23 +31,23 @@ variable "vm_domain" {
 }
 
 variable "vm_datacenter" {
-  description = "vm domain"
+  description = "vmware datacenter name"
 }
 
 variable "vm_datastore" {
-  description = "vm domain"
+  description = "datastore name"
 }
 
 variable "vm_cluster" {
-  description = "vm domain"
+  description = "vmware cluster name"
 }
 
 variable "vm_resource_pool" {
-  description = "vm resource pool"
+  description = "vm resource pool name for the cluster"
 }
 
 variable "vm_folder" {
-  description = "vm folder"
+  description = "vm folder name"
 }
 
 variable "anti_affinity_rule_name" {
@@ -56,7 +60,7 @@ variable "local_admin_user" {
 }
 
 variable "local_admin_pass" {
-  description = "local admin pass nodes"
+  description = "local admin password nodes"
 }
 
 variable "loadbalancer_iprange" {
@@ -89,19 +93,23 @@ variable "workers_startip" {
 }
 
 variable "masters_prefix" {
-  default = "k8master"
+  description = "master nodes prefix name"
+  default     = "k8master"
 }
 
 variable "masters_count" {
-  default = 1
+  description = "master node count currently max 1 works"
+  default     = 1
 }
 
 variable "masters_cpu" {
-  default = 2
+  description = "cpu count master nodes"
+  default     = 2
 }
 
 variable "masters_memory" {
-  default = 4096
+  description = "Memory master nodes"
+  default     = 4096
 }
 
 variable "masters_disk" {
