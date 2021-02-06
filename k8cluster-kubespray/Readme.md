@@ -1,4 +1,4 @@
-# Deploy k8cluster with ubuntu vms #
+# Deploy k8cluster with kubespray #
 ```
 1. create terraform.tfvars see example
 2. terraform init
