@@ -44,6 +44,6 @@ workers_memory  = 4096
 workers_disk    = 100
 workers_startip = 192.168.1.211
 
-masters_count   = 0 //master nodes wil get automaticly selected from worker nodes
+masters_count   = 0 //master nodes wil get automatically selected from worker nodes
 ```
 
