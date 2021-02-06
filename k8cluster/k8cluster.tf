@@ -1,5 +1,3 @@
-#Virtual Machine Resource
-
 module "deploy-cluster" {
   source        = "./modules/deploy-cluster"
   folder        = var.vm_folder
