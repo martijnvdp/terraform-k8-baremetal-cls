@@ -47,6 +47,11 @@ variable "vm_cluster" {
   description = "vmware cluster name"
 }
 
+variable "vm_cluster_node_count" {
+  description = "number of esxi hosts in the cluster"
+  default     = 3
+}
+
 variable "vm_resource_pool" {
   description = "vm resource pool name for the cluster"
 }

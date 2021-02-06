@@ -24,6 +24,10 @@ variable "datastore" {
 variable "cluster" {
   description = "vm domain"
 }
+variable "cluster_node_count" {
+  description = "number of esxi hosts in the cluster"
+  default     = 3
+}
 variable "resource_pool" {
   description = "vm resource pool"
 }
