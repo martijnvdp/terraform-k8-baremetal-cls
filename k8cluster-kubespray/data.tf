@@ -1,8 +1,8 @@
 data "template_file" "deploy-cluster-template" {
   template = file("${path.module}/scripts/templates/deploy-cluster-template")
   vars = {
-    master_nodes         = join(";", module.deploy-cluster.cluster.master_nodes_ips)
-    worker_nodes         = join(";", module.deploy-cluster.cluster.worker_nodes_ips)
+    master_nodes         = join(" ", module.deploy-cluster.cluster.master_nodes_ips)
+    worker_nodes         = join(" ", module.deploy-cluster.cluster.worker_nodes_ips)
     loadbalancer_iprange = var.loadbalancer_iprange
     admin_user           = var.local_admin_user
     admin_pass           = var.local_admin_pass

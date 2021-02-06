@@ -24,14 +24,6 @@ module "deploy-cluster" {
       "memory"  = var.workers_memory,
       "disk"    = var.workers_disk,
       "startip" = var.workers_startip,
-    },
-    "master_nodes" = {
-      "prefix"  = var.masters_prefix,
-      "count"   = var.masters_count,
-      "cpu"     = var.masters_cpu,
-      "memory"  = var.masters_memory,
-      "disk"    = var.masters_disk,
-      "startip" = var.masters_startip,
     }
   }
 }
