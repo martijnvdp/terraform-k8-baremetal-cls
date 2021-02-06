@@ -1,10 +1,5 @@
-resource "local_file" "deploy-cluster-script" {
-  content  = data.template_file.deploy-cluster-template.rendered
-  filename = "${path.module}/scripts/deploy-cluster.sh"
-}
-
 module "deploy-cluster" {
-  source        = "${path.module}/../modules/deploy-cluster"
+  source        = "./../modules/deploy-cluster"
   folder        = var.vm_folder
   resource_pool = var.vm_resource_pool
   datastore     = var.vm_datastore
@@ -24,6 +19,9 @@ module "deploy-cluster" {
       "memory"  = var.workers_memory,
       "disk"    = var.workers_disk,
       "startip" = var.workers_startip,
+    },
+    "master_nodes" = {
+      "count" = 0, //will be automaticly created from worker node pool
     }
   }
 }
@@ -49,7 +47,6 @@ resource "null_resource" "prep_nodes" {
 }
 
 resource "null_resource" "create_cluster" {
-  count = length(module.deploy-cluster.cluster.master_nodes_ips)
   provisioner "file" {
     source      = local_file.deploy-cluster-script.filename
     destination = "/tmp/deploy-cluster.sh"
@@ -64,6 +61,6 @@ resource "null_resource" "create_cluster" {
     type     = "ssh"
     user     = var.local_admin_user
     password = var.local_admin_pass
-    host     = module.deploy-cluster.cluster.master_nodes_ips[count.index]
+    host     = module.deploy-cluster.cluster.worker_nodes_ips[0]
   }
 }
