@@ -23,7 +23,6 @@ variable "vm_netmask" {
   default     = 24
 }
 
-
 variable "vm_default_gw" {
   description = "default gateway"
 }

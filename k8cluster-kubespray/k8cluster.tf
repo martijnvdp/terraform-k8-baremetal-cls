@@ -21,12 +21,7 @@ module "deploy-cluster" {
       "startip" = var.workers_startip,
     },
     "master_nodes" = {
-      "prefix"  = var.masters_prefix,
-      "count"   = var.masters_count,
-      "cpu"     = var.masters_cpu,
-      "memory"  = var.masters_memory,
-      "disk"    = var.masters_disk,
-      "startip" = var.masters_startip,
+      "count" = 0, //will be automaticly created from worker node pool
     }
   }
 }
@@ -52,7 +47,6 @@ resource "null_resource" "prep_nodes" {
 }
 
 resource "null_resource" "create_cluster" {
-  count = length(module.deploy-cluster.cluster.master_nodes_ips)
   provisioner "file" {
     source      = local_file.deploy-cluster-script.filename
     destination = "/tmp/deploy-cluster.sh"
@@ -67,6 +61,6 @@ resource "null_resource" "create_cluster" {
     type     = "ssh"
     user     = var.local_admin_user
     password = var.local_admin_pass
-    host     = module.deploy-cluster.cluster.master_nodes_ips[count.index]
+    host     = module.deploy-cluster.cluster.worker_nodes_ips[0]
   }
 }
