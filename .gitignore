@@ -20,3 +20,4 @@ k8cluster/scripts/deploy-cluster-node.sh
 k8cluster/scripts/deploy-cluster.sh
 k8cluster - kubespray/scripts/deploy-cluster-node.sh
 k8cluster/scripts/add-cluster-to-local-config.ps1
+k8cluster/terraform.tfstate.backup

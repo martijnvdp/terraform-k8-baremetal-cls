@@ -72,11 +72,12 @@ data:
       addresses:
       - ${loadbalancer_iprange}
 EOF
+IFS=';' read -ra masternodes <<< "${master_nodes}"
 sudo kubeadm token list|sed '/TOKEN/d'| awk '{print $1}' > /home/ubuntu/token.txt
-echo "sudo kubeadm join ${ip1}:6443 --token $(sudo kubeadm token list|sed '/TOKEN/d'| awk '{print $1}' ) --discovery-token-ca-cert-hash sha256:$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //')" >> /home/ubuntu/joincls.sh
+echo "sudo kubeadm join $${masternodes[0]}:6443 --token $(sudo kubeadm token list|sed '/TOKEN/d'| awk '{print $1}' ) --discovery-token-ca-cert-hash sha256:$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //')" >> /home/ubuntu/joincls.sh
 sudo kubectl describe secret $(sudo kubectl describe serviceaccount admin|grep Tokens:|awk '{print $2}') |grep token:|sed '/admin/g'|sed '/kubernetes/g'|awk '{print $2}' > /home/ubuntu/account-token
-nodes="${ip2} ${ip3}"
-for node in $${nodes}
+IFS=';' read -ra workernodes <<< "${worker_nodes}"
+for node in $${workernodes}
 do
   sshpass -p ${admin_pass} scp -o "StrictHostKeyChecking no" /home/ubuntu/joincls.sh ${admin_user}@$node:/home/ubuntu/joincls.sh
   sshpass -p ${admin_pass} ssh -o "StrictHostKeyChecking no" ${admin_user}@$node "sudo chmod +x /home/ubuntu/joincls.sh;sudo /home/ubuntu/joincls.sh"
