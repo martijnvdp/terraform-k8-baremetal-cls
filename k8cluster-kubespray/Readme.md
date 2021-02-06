@@ -1,4 +1,8 @@
 # Deploy k8cluster with kubespray #
+
+Auto-deployment of a ha kubernetes cluster on vmware using the kubespray ansible playbook \
+more info: https://github.com/kubernetes-sigs/kubespray
+
 ```
 1. create terraform.tfvars see example
 2. terraform init
