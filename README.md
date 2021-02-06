@@ -66,17 +66,17 @@ example monkeyisland:
 ```
 ## addons ##
 ```
-grafana: \
+grafana: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/grafana.yaml
-kiali: \
+kiali: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/kiali.yaml
-jaeger: \
+jaeger: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/jaeger.yaml
-prometheus: \
+prometheus: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/prometheus.yaml
-zipkin: \
+zipkin: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/extras/zipkin.yaml
-cert manager: \
+cert manager: 
 https://github.com/jetstack/cert-manager
 ```
 
