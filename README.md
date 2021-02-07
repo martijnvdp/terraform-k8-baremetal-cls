@@ -60,6 +60,9 @@ example monkeyisland:
 ```
 1. in a working k8 cluster
 2. powershell -file scripts\deploy-monkeyisland.ps1
+3. give hostname for istio rules
+4. acces monkeyisland using a browser to the givven hostname
+or without istio:
 3. kubectl -n games port-forward svc/monkeyisland 8080:8080 8081:8081
 4. http://localhost:8080/
 
