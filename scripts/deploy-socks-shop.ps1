@@ -19,5 +19,5 @@ spec:
       protocol: HTTP
     hosts:
     - "$sock_fqdn"
-"@| out-file sockshop-gateway.yaml
-kubectl -n sock-shop apply -f sockshop-gateway.yaml
+"@| out-file $psscriptroot/../demos/sock-shop/sockshop-gateway.yaml
+kubectl -n sock-shop apply -f $psscriptroot/../demos/sock-shop/sockshop-gateway.yaml
