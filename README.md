@@ -82,6 +82,11 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/sampl
 cert manager: 
 https://github.com/jetstack/cert-manager
 ```
+## istio ##
+```
+custom port 
+kubectl -n istio-system patch svc istio-ingressgateway --type=json -p='[{"op": "add","path": "/spec/ports/-","value": {"name":"monkeyisland","nodePort":3199,"port":99,"protocol":"TCP","targetPort":99}}]' --dry-run=true -o yaml | kubectl apply -f -
+```
 
 ## Refs ##
 ```
