@@ -1,8 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: games
+  labels:
+    istio-injection: enabled 
+---
 apiVersion: retro.sparkfabrik.com/v1
 kind: Game
 metadata:
   name: monkeyisland
   namespace: games
+  labels:
+    version: v1    
 spec:
   name: "Monkey island"
   zipUrl: "https://dosgames.com/files/monkey1.zip"
