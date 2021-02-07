@@ -60,24 +60,32 @@ example monkeyisland:
 ```
 1. in a working k8 cluster
 2. powershell -file scripts\deploy-monkeyisland.ps1
+3. give hostname for istio rules
+4. acces monkeyisland using a browser to the givven hostname
+or without istio:
 3. kubectl -n games port-forward svc/monkeyisland 8080:8080 8081:8081
 4. http://localhost:8080/
 
 ```
 ## addons ##
-
-grafana: \
+```
+grafana: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/grafana.yaml
-kiali: \
+kiali: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/kiali.yaml
-jaeger: \
+jaeger: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/jaeger.yaml
-prometheus: \
+prometheus: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/prometheus.yaml
-zipkin: \
+zipkin: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/extras/zipkin.yaml
-cert manager: \
+cert manager: 
 https://github.com/jetstack/cert-manager
+```
+## istio ##
+```
+custom port 
+kubectl -n istio-system patch svc istio-ingressgateway --type=json -p='[{"op": "add","path": "/spec/ports/-","value": {"name":"monkeyisland","nodePort":3199,"port":99,"protocol":"TCP","targetPort":99}}]' --dry-run=true -o yaml | kubectl apply -f -
 ```
 
 ## Refs ##
