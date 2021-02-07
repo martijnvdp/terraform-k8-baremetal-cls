@@ -17,7 +17,7 @@ spec:
   servers:
   - port:
       number: 80
-      name: http
+      name: monkeyisland-http
       protocol: HTTP
     hosts:
     - "$monkey_fqdn"

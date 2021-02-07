@@ -15,7 +15,7 @@ spec:
   servers:
   - port:
       number: 80
-      name: http
+      name: sockshop-http
       protocol: HTTP
     hosts:
     - "$sock_fqdn"
