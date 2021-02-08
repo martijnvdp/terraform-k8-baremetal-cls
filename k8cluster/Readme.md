@@ -1,4 +1,4 @@
-# Deploy k8cluster with ubuntu vms #
+# Deploy a basic k8cluster #
 
 Auto-deployment of a basic kubernetes cluster
 ```
@@ -10,11 +10,11 @@ Auto-deployment of a basic kubernetes cluster
 
 powershell
 powershell -file scripts\add-cluster-to-local-config.ps1 
-enter token from the terraform output
+enter the token from the terraform output
 
 shell: 
 .\scripts\add-cluster-to-local-config.sh 
-ennter token from output
+enter token from output
 
 5. check connection with 
 kubectl get svc
@@ -24,7 +24,6 @@ kubectl get svc
 ### example terraform.tfvars ###
 ```
 vsphere_server       = "vc.dc.local"
-vm_name              = "k8node"
 vm_dns               = ["8.8.8.8","8.8.4.4"]
 vm_network           = "VM Network"
 vm_default_gw        = "192.168.1.1"
