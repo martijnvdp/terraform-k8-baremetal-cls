@@ -26,7 +26,6 @@ kubectl get svc
 ### example terraform.tfvars ###
 ```
 vsphere_server       = "vc.dc.local"
-vm_name              = "k8node"
 vm_dns               = ["8.8.8.8","8.8.4.4"]
 vm_network           = "VM Network"
 vm_default_gw        = "192.168.1.1"
