@@ -1,15 +1,17 @@
-# k8 cluster deployment scripts
+# K8 Cluster auto-deployment scripts
+
+Terraform scripts to quickly deploy a kubernetes cluster on vmware with linux vms
 
 ## k8cluster ##
 
-Working basic bare metal autodeployment of a kubernetes cluster on vmware with ubuntu vms \
+Basic bare metal autodeployment of a kubernetes cluster on vmware with ubuntu vms \
 using terraform and shell scripts 
 
 - metallb loadbalancer
 
-
 ## k8cluster-kubespray ##
-Terraform code to deploy akubernetes cluster on vmware using kubespray ansible playboom and terraform \
+
+Advanced kubenetes cluster on vmware using kubespray ansible playbooks from the kubespray github  \
 HA cluster multiple master nodes with etcd
 
 more info:
@@ -22,7 +24,8 @@ https://github.com/kubernetes-sigs/kubespray/issues/6762
 
 ## Demo workloads ##
 
-Install demo workload in the k8 cluster
+Deploy demo worloads in he kubernetes cluster 
+deployment scripts in .\scripts
 
 ### Socks webshop - microservices ###
 ```
@@ -42,7 +45,9 @@ https://github.com/microservices-demo/microservices-demo
 https://istio.io/latest/docs/examples/bookinfo/
 ```
 
-fortio load generator
+### Fortio load generator ###
+
+Generate workload with this tool
 ```
 go get fortio.org/fortio
 https://github.com/fortio/fortio
@@ -50,9 +55,9 @@ https://github.com/fortio/fortio
 fortio load -c 32 -qps 25 -t 30s http://sockshop.local/
 ```
 
-### Retro dos games :monkey island ###
+### Retro dos games : monkey island ###
 
-run old dos games in kubernetes \
+Fun project to run old dos games in kubernetes: \
 https://github.com/paolomainardi/additronk8s-retrogames-kubernetes-controller
 
 example monkeyisland:
@@ -68,6 +73,7 @@ or without istio:
 
 ```
 ## addons ##
+
 ```
 grafana: 
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.8/samples/addons/grafana.yaml
@@ -83,7 +89,14 @@ cert manager:
 https://github.com/jetstack/cert-manager
 ```
 ## istio ##
+
+manage network traffic
+https://istio.io/latest/
+
 ```
+install using istioctl:
+istioctl install
+
 custom port 
 kubectl -n istio-system patch svc istio-ingressgateway --type=json -p='[{"op": "add","path": "/spec/ports/-","value": {"name":"monkeyisland","nodePort":3199,"port":99,"protocol":"TCP","targetPort":99}}]' --dry-run=true -o yaml | kubectl apply -f -
 ```
